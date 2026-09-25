@@ -101,13 +101,13 @@ export default function CartDrawer({ open, onClose }: Props) {
               </div>
             </div>
 
-           <Link
-  href="/checkout"
-  onClick={onClose}
-  className="block w-full mt-6 bg-white text-black py-4 text-center tracking-[0.25em] hover:opacity-90 transition"
->
-  CHECKOUT
-</Link>
+            <Link
+              href="/checkout"
+              onClick={onClose}
+              className="block w-full mt-6 bg-white text-black py-4 text-center tracking-[0.25em] hover:opacity-90 transition"
+            >
+              CHECKOUT
+            </Link>
           </>
         )}
       </aside>
