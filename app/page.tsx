@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import LoadingScreen from "../components/LoadingScreen";
-import CustomCursor from "../components/CustomCursor";
-import CartDrawer from "../components/CartDrawer";
+import LoadingScreen from "./components/LoadingScreen";
+import CustomCursor from "./components/CustomCursor";
+import CartDrawer from "./components/CartDrawer";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -195,7 +195,7 @@ export default function Home() {
         <footer className="border-t border-white/10 py-14 px-8 md:px-14">
           <div className="flex justify-between text-sm text-neutral-500">
             <p>© 2026 AVENOIR</p>
-            <p>avenoir.co</p>
+            <p>avenoirr.co</p>
           </div>
         </footer>
       </main>
