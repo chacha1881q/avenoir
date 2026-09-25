@@ -1,11 +1,13 @@
 "use client";
 
+"use client";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import LoadingScreen from "./components/LoadingScreen";
-import CustomCursor from "./components/CustomCursor";
-import CartDrawer from "./components/CartDrawer";
+import LoadingScreen from "../components/LoadingScreen";
+import CustomCursor from "../components/CustomCursor";
+import CartDrawer from "../components/CartDrawer";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
