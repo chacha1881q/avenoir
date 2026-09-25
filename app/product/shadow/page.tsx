@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import CartDrawer from "../../components/CartDrawer";
+import CartDrawer from "../../../components/CartDrawer";
 
 export default function ProductPage() {
   const [size, setSize] = useState("M");
