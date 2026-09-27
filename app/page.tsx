@@ -197,7 +197,7 @@ export default function Home() {
         <footer className="border-t border-white/10 py-14 px-8 md:px-14">
           <div className="flex justify-between text-sm text-neutral-500">
             <p>© 2026 AVENOIR</p>
-            <p>avenoirr.co</p>
+            <p>avenoirr.com.tr</p>
           </div>
         </footer>
       </main>
