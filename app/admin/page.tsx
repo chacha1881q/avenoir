@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -12,77 +11,98 @@ const cards = [
 
 export default function AdminDashboard() {
   return (
-    &lt;div className="min-h-screen bg-black text-white"&gt;
-      &lt;aside className="fixed left-0 top-0 h-full w-64 border-r border-white/10 p-6"&gt;
-        &lt;h1 className="text-2xl tracking-[0.3em] mb-10"&gt;AVENOIR&lt;/h1&gt;
+    <div className="min-h-screen bg-black text-white">
+      <aside className="fixed left-0 top-0 h-full w-64 border-r border-white/10 p-6">
+        <h1 className="text-2xl tracking-[0.3em] mb-10">AVENOIR</h1>
 
-        &lt;nav className="space-y-3"&gt;
-          &lt;Link href="/admin" className="block text-white"&gt;Dashboard&lt;/Link&gt;
-          &lt;Link href="/admin/products" className="block text-neutral-400 hover:text-white"&gt;Ürünler&lt;/Link&gt;
-          &lt;Link href="/admin/orders" className="block text-neutral-400 hover:text-white"&gt;Siparişler&lt;/Link&gt;
-          &lt;Link href="/admin/customers" className="block text-neutral-400 hover:text-white"&gt;Müşteriler&lt;/Link&gt;
-          &lt;Link href="/admin/settings" className="block text-neutral-400 hover:text-white"&gt;Ayarlar&lt;/Link&gt;
-        &lt;/nav&gt;
+        <nav className="space-y-3">
+          <Link href="/admin" className="block text-white">
+            Dashboard
+          </Link>
+          <Link
+            href="/admin/products"
+            className="block text-neutral-400 hover:text-white"
+          >
+            Ürünler
+          </Link>
+          <Link
+            href="/admin/orders"
+            className="block text-neutral-400 hover:text-white"
+          >
+            Siparişler
+          </Link>
+          <Link
+            href="/admin/customers"
+            className="block text-neutral-400 hover:text-white"
+          >
+            Müşteriler
+          </Link>
+          <Link
+            href="/admin/settings"
+            className="block text-neutral-400 hover:text-white"
+          >
+            Ayarlar
+          </Link>
+        </nav>
 
-        &lt;button
-          onClick={() =&gt; {
+        <button
+          onClick={() => {
             localStorage.removeItem("admin");
             location.href = "/admin/login";
           }}
           className="absolute bottom-6 left-6 text-red-400"
-        &gt;
+        >
           Çıkış Yap
-        &lt;/button&gt;
-      &lt;/aside&gt;
+        </button>
+      </aside>
 
-      &lt;main className="ml-64 p-10"&gt;
-        &lt;h2 className="text-4xl font-light mb-8"&gt;Dashboard&lt;/h2&gt;
+      <main className="ml-64 p-10">
+        <h2 className="text-4xl font-light mb-8">Dashboard</h2>
 
-        &lt;div className="grid grid-cols-4 gap-6"&gt;
-          {cards.map((card) =&gt; (
-            &lt;Link
+        <div className="grid grid-cols-4 gap-6">
+          {cards.map((card) => (
+            <Link
               key={card.title}
               href={card.href}
               className="border border-white/10 p-6 hover:border-white transition"
-            &gt;
-              &lt;p className="text-neutral-500"&gt;{card.title}&lt;/p&gt;
-              &lt;h3 className="text-3xl mt-3"&gt;{card.value}&lt;/h3&gt;
-            &lt;/Link&gt;
+            >
+              <p className="text-neutral-500">{card.title}</p>
+              <h3 className="text-3xl mt-3">{card.value}</h3>
+            </Link>
           ))}
-        &lt;/div&gt;
+        </div>
 
-        &lt;div className="mt-10 border border-white/10 p-6"&gt;
-          &lt;h3 className="text-xl mb-4"&gt;Son Siparişler&lt;/h3&gt;
+        <div className="mt-10 border border-white/10 p-6">
+          <h3 className="text-xl mb-4">Son Siparişler</h3>
 
-          &lt;table className="w-full text-left"&gt;
-            &lt;thead className="text-neutral-500"&gt;
-              &lt;tr&gt;
-                &lt;th className="py-3"&gt;No&lt;/th&gt;
-                &lt;th&gt;Müşteri&lt;/th&gt;
-                &lt;th&gt;Tutar&lt;/th&gt;
-                &lt;th&gt;Durum&lt;/th&gt;
-              &lt;/tr&gt;
-            &lt;/thead&gt;
+          <table className="w-full text-left">
+            <thead className="text-neutral-500">
+              <tr>
+                <th className="py-3">No</th>
+                <th>Müşteri</th>
+                <th>Tutar</th>
+                <th>Durum</th>
+              </tr>
+            </thead>
 
-            &lt;tbody&gt;
-              &lt;tr className="border-t border-white/10"&gt;
-                &lt;td className="py-4"&gt;#1001&lt;/td&gt;
-                &lt;td&gt;Kerem&lt;/td&gt;
-                &lt;td&gt;₺2.350&lt;/td&gt;
-                &lt;td className="text-green-400"&gt;Tamamlandı&lt;/td&gt;
-              &lt;/tr&gt;
+            <tbody>
+              <tr className="border-t border-white/10">
+                <td className="py-4">#1001</td>
+                <td>Kerem</td>
+                <td>₺2.350</td>
+                <td className="text-green-400">Tamamlandı</td>
+              </tr>
 
-              &lt;tr className="border-t border-white/10"&gt;
-                &lt;td className="py-4"&gt;#1002&lt;/td&gt;
-                &lt;td&gt;Ayşe&lt;/td&gt;
-                &lt;td&gt;₺1.180&lt;/td&gt;
-                &lt;td className="text-yellow-400"&gt;Hazırlanıyor&lt;/td&gt;
-              &lt;/tr&gt;
-            &lt;/tbody&gt;
-          &lt;/table&gt;
-        &lt;/div&gt;
-      &lt;/main&gt;
-    &lt;/div&gt;
+              <tr className="border-t border-white/10">
+                <td className="py-4">#1002</td>
+                <td>Ayşe</td>
+                <td>₺1.180</td>
+                <td className="text-yellow-400">Hazırlanıyor</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
   );
 }
-  
