@@ -1,16 +1,27 @@
-export const products = [
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  stock: number;
+  category: string;
+  image: string;
+}
+
+export const products: Product[] = [
   {
     id: 1,
-    name: "Obsidian Hoodie",
+    name: "Shadow Hoodie",
     price: 2490,
-    image: "/hoodie.jpg",
-    category: "Hoodie"
+    stock: 12,
+    category: "Hoodie",
+    image: "/products/shadow.jpg",
   },
   {
     id: 2,
-    name: "Void Pants",
-    price: 2190,
-    image: "/pants.jpg",
-    category: "Pants"
-  }
+    name: "Noir Tee",
+    price: 1190,
+    stock: 28,
+    category: "T-Shirt",
+    image: "/products/noir.jpg",
+  },
 ];
