@@ -1,16 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function AdminPage() {
+export default function AdminDashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    const isAdmin = localStorage.getItem("admin");
-
-    if (isAdmin !== "true") {
+    if (localStorage.getItem("admin") !== "true") {
       router.push("/admin/login");
     }
   }, [router]);
@@ -21,55 +18,106 @@ export default function AdminPage() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white p-8 md:p-12">
-      {/* HEADER */}
-      <div className="flex justify-between items-center border-b border-white/10 pb-6">
-        <div>
-          <p className="text-xs tracking-[0.35em] text-neutral-500">
-            AVENOIR
-          </p>
-          <h1 className="text-4xl font-light mt-2">
-            Admin Dashboard
-          </h1>
-        </div>
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex">
+
+      {/* Sidebar */}
+      <aside className="w-64 border-r border-white/10 p-6">
+        <h1 className="text-2xl tracking-[6px] font-light mb-10">
+          AVENOIR
+        </h1>
+
+        <nav className="space-y-4 text-sm">
+          <div className="text-white">Dashboard</div>
+          <div className="text-neutral-500">Ürünler</div>
+          <div className="text-neutral-500">Siparişler</div>
+          <div className="text-neutral-500">Müşteriler</div>
+          <div className="text-neutral-500">Ayarlar</div>
+        </nav>
 
         <button
           onClick={logout}
-          className="border border-white/20 px-5 py-2 text-sm hover:bg-white hover:text-black transition"
+          className="mt-12 w-full border border-red-500 py-2 hover:bg-red-600 transition"
         >
-          Logout
+          Çıkış Yap
         </button>
-      </div>
+      </aside>
 
-      {/* CARDS */}
-      <div className="grid md:grid-cols-3 gap-6 mt-10">
-        <Link
-          href="/admin/products"
-          className="border border-white/10 p-6 rounded-xl hover:border-white transition"
-        >
-          <p className="text-neutral-500 text-sm mb-2">01</p>
-          <h2 className="text-2xl font-light">Products</h2>
-          <p className="text-neutral-500 mt-3 text-sm">
-            Edit products, prices and stock.
-          </p>
-        </Link>
+      {/* Main */}
+      <main className="flex-1 p-10">
 
-        <div className="border border-white/10 p-6 rounded-xl">
-          <p className="text-neutral-500 text-sm mb-2">02</p>
-          <h2 className="text-2xl font-light">Orders</h2>
-          <p className="text-neutral-500 mt-3 text-sm">
-            Coming soon
-          </p>
+        <h2 className="text-3xl font-light mb-8">
+          Admin Dashboard
+        </h2>
+
+        {/* Stats */}
+        <div className="grid grid-cols-4 gap-5 mb-10">
+
+          <div className="bg-white/5 border border-white/10 p-5 rounded-xl">
+            <p className="text-neutral-400 text-sm">Toplam Ürün</p>
+            <h3 className="text-3xl mt-2">24</h3>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 p-5 rounded-xl">
+            <p className="text-neutral-400 text-sm">Sipariş</p>
+            <h3 className="text-3xl mt-2">8</h3>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 p-5 rounded-xl">
+            <p className="text-neutral-400 text-sm">Müşteri</p>
+            <h3 className="text-3xl mt-2">51</h3>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 p-5 rounded-xl">
+            <p className="text-neutral-400 text-sm">Ciro</p>
+            <h3 className="text-3xl mt-2">₺12.450</h3>
+          </div>
+
         </div>
 
-        <div className="border border-white/10 p-6 rounded-xl">
-          <p className="text-neutral-500 text-sm mb-2">03</p>
-          <h2 className="text-2xl font-light">Analytics</h2>
-          <p className="text-neutral-500 mt-3 text-sm">
-            Coming soon
-          </p>
+        {/* Orders */}
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+
+          <h3 className="text-xl mb-5">Son Siparişler</h3>
+
+          <table className="w-full text-sm">
+            <thead className="text-neutral-400 border-b border-white/10">
+              <tr>
+                <th className="text-left py-3">Sipariş</th>
+                <th className="text-left">Müşteri</th>
+                <th className="text-left">Tutar</th>
+                <th className="text-left">Durum</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr className="border-b border-white/5">
+                <td className="py-4">#1001</td>
+                <td>Kerem</td>
+                <td>₺1.890</td>
+                <td className="text-green-400">Ödendi</td>
+              </tr>
+
+              <tr className="border-b border-white/5">
+                <td className="py-4">#1002</td>
+                <td>Ayşe</td>
+                <td>₺990</td>
+                <td className="text-yellow-400">Hazırlanıyor</td>
+              </tr>
+
+              <tr>
+                <td className="py-4">#1003</td>
+                <td>Can</td>
+                <td>₺2.450</td>
+                <td className="text-blue-400">Kargoda</td>
+              </tr>
+
+            </tbody>
+          </table>
+
         </div>
-      </div>
-    </main>
+
+      </main>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   const login = () => {
-    if (password === "avenoir2026") {
+    if (password === "Kerem2026!") {
       localStorage.setItem("admin", "true");
       router.push("/admin");
     } else {
